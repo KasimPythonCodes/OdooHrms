@@ -1,0 +1,195 @@
+Cycle Type---Account Cycle with No tracking 
+
+function---"Parameters Type in Tc setting"
+
+
+'Account Function'  		'Parameter Type'
+
+create_product_ac		-----> product_type ,product	,tracking_type	,product_category ,hsn	
+purchase_order_ac		----->tracking_type-->No tracking 
+rc_gate_no_track_ac		--->tracking_type-->No tracking 
+qc_no_tracking_ac		----->tracking_type-->No tracking 
+ms_no_tracking_ac		----->tracking_type-->No tracking 
+debit_note_ac			--------->tracking_type-->No tracking 
+
+
+
+
+-----------------_!!!!!!!!!!!!!!!!!!!!!!!!_PO-----------------------__PO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+Cycle Type---Purchase Cycle with No tracking and without Agreements
+
+function---"Parameters Type in Tc setting"
+			
+'Po Function--"Test Case Description"'  		'Parameter Type'
+
+create_product		-----> product_type ,product,tracking_type,product_category ,hsn	
+create_mrs		----->tracking_type-->No tracking,Type_cycle-mrs 
+create_po		--->tracking_type-->No tracking 
+rc gate		----->tracking_type-->No tracking (Note --: All code in a function like -Vendor Bill--->QC-->MS)
+
+
+
+Cycle Type---Purchase Cycle with Lot and without Agreements
+
+function---"Parameters Type in Tc setting"
+			
+'Po Function--"Test Case Description"'  		'Parameter Type'
+
+create_product		-----> product_type ,product,tracking_type,product_category ,hsn	
+create_mrs		----->tracking_type-->lot,Type_cycle-mrs 
+create_po		--->tracking_type-->lot 
+rc gate lot		----->tracking_type-->lot (Note --: All code in a function like -Vendor Bill--->QC-->MS)
+
+
+
+Cycle Type---Purchase Cycle with Serial and without Agreements
+
+function---"Parameters Type in Tc setting"
+			
+'Po Function--"Test Case Description"'  		'Parameter Type'
+
+create_product		-----> product_type ,product,tracking_type,product_category ,hsn	
+create_mrs		----->tracking_type-->Serial,Type_cycle-mrs 
+create_po		--->tracking_type-->Serial 
+rc gate serial		----->tracking_type-->Serial (Note --: All code in a function like -Vendor Bill--->QC-->MS)
+
+
+
+
+Cycle Type---Purchase Cycle with No Tracking and  Agreements
+
+function---"Parameters Type in Tc setting"
+			
+'Po Function--"Test Case Description"'  		'Parameter Type'
+
+create_product				-----> product_type ,product,tracking_type,product_category ,hsn	
+create_purchase_arc_and_open_order	----->tracking_type-->No tracking , arc_type (Note-: All code in a function like -Vendor Bill--->QC-->MS)
+
+
+Cycle Type---Purchase Cycle with Lot and  Agreements
+
+function---"Parameters Type in Tc setting"
+			
+'Po Function--"Test Case Description"'  		'Parameter Type'
+
+create_product				-----> product_type ,product,tracking_type,product_category ,hsn	
+create_purchase_arc_and_open_order	----->tracking_type-->Lot , arc_type (Note --: All code in a function like -Vendor Bill--->QC-->MS)
+
+
+
+Cycle Type---Purchase Cycle with Serial and  Agreements
+
+function---"Parameters Type in Tc setting"
+			
+'Po Function--"Test Case Description"'  		'Parameter Type'
+
+create_product				-----> product_type ,product,tracking_type,product_category ,hsn	
+create_purchase_arc_and_open_order	----->tracking_type-->Serial , arc_type (Note --: All code in a function like -Vendor Bill--->QC-->MS)
+
+
+-----------------_!!!!!!!!!!!!!!!!!!!!!!!!_MO-----------------------__MO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+Cycle Type---Manufacturing Cycle with No tracking and Internal 
+
+"MO Function--"Test Case Description""                      "Parameter Type"
+
+create_finishgood_with_not_tracking	----->product - can be sold, tracking_type - no tracking, product_category - stockable, hsn - yes
+create_bill_of_material 		---->tracking_type - no tracking,Is_internal	
+create_manufacturing			----> tracking_type - no tracking,Is_internal	
+workorder  				----->tracking_type - no tracking, Is_internal - yes	
+
+
+Cycle Type---Manufacturing Cycle with lot and Internal 
+
+"MO Function--"Test Case Description""                      "Parameter Type"
+
+create_finishgood_with_not_tracking	----->product - can be sold, tracking_type - lot, product_category - stockable, hsn - yes
+create_bill_of_material 		---->tracking_type - lot,Is_internal	
+create_manufacturing			----> tracking_type - lot,Is_internal	
+workorder  				----->tracking_type - lot, Is_internal - yes	
+
+
+Cycle Type---Manufacturing Cycle with Serial and Internal 
+
+"MO Function--"Test Case Description""                      "Parameter Type"
+
+create_finishgood_with_not_tracking	----->product - can be sold, tracking_type - Serial, product_category - stockable, hsn - yes
+create_bill_of_material 		---->tracking_type - Serial,Is_internal	
+create_manufacturing			----> tracking_type - Serial,Is_internal	
+workorder  				----->tracking_type - Serial, Is_internal - yes	
+
+
+------------------------------Mo Is External
+
+Cycle Type---Manufacturing Cycle with No tracking and Is_external  
+
+"MO Function--"Test Case Description""                      "Parameter Type"
+
+create_finishgood_with_not_tracking	----->product - can be sold, tracking_type - no tracking, product_category - stockable, hsn - yes
+create_bill_of_material 		---->tracking_type - no tracking,Is_external 	
+create_manufacturing			----> tracking_type - no tracking,Is_external 	
+workorder  				----->tracking_type - no tracking, Is_external  - yes	
+
+
+Cycle Type---Manufacturing Cycle with lot and Internal 
+
+"MO Function--"Test Case Description""                      "Parameter Type"
+
+create_finishgood_with_not_tracking	----->product - can be sold, tracking_type - lot, product_category - stockable, hsn - yes
+create_bill_of_material 		---->tracking_type - lot,Is_external 	
+create_manufacturing			----> tracking_type - lot,Is_external 	
+workorder  				----->tracking_type - lot, Is_external  - yes	
+
+
+Cycle Type---Manufacturing Cycle with Serial and Internal 
+
+"MO Function--"Test Case Description""                      "Parameter Type"
+
+create_finishgood_with_not_tracking	----->product - can be sold, tracking_type - Serial, product_category - stockable, hsn - yes
+create_bill_of_material 		---->tracking_type - Serial,Is_external 	
+create_manufacturing			----> tracking_type - Serial,Is_external 	
+workorder  				----->tracking_type - Serial, Is_external  - yes	
+
+
+
+
+
+++++++++++++++++++++++Net salary variable +++++++++++++++++++++++++++++++++
+
+days = worked_days.get('WORK100')
+worked_days_count = days.number_of_days if days else 0.0
+leave = worked_days.get('LEAVE90')
+leave_days = leave.number_of_days if leave else 0.0
+total_per_days_am = categories.get('BASIC', 0.0)
+
+result = (
+    total_per_days_am * worked_days_count
+    + categories.get('hra_allowance', 0.0)
+    + categories.get('sb_allowance', 0.0)
+ 
+) - (categories.get('esic_empr_deduction', 0.0) + categories.get('pfd_deduction', 0.0))
+
+
++++++++++++++++++++++ Basic Salary Variable +++++++++++++++++++++++++++++++
+
+days = worked_days.get('WORK100')
+worked_days_count = days.number_of_days if days else 0.0
+leave = worked_days.get('LEAVE90')
+leave_days = leave.number_of_days if leave else 0.0
+month_days = payslip.month_days or 30
+result = contract.wage / month_days
+
+                    
+
+
+"""""""""" nohup python3 odoo-bin -c odoo.conf -d odoo_db_enterprice18 & """"""""""""""
+
+
+
+
+
+
